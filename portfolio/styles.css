@@ -1,71 +1,94 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #7D26CD;
-}
-.navbar {
-    background-color: #4B0082; /* Donkerpaars */
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-.navbar a {
-    float: left    ;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-.navbar a:hover {
-    background-color: #7D26CD; /* Iets lichtere paars voor hover effect */
-    color: white;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 20px 20px; /* Voeg padding-top toe om rekening te houden met het vaste menu */
-}
-.item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0;
-    width: 80%;
-}
-.item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-.item img {
-    width: 300px; /* Vergroot de afbeelding */
-    height: auto;
-    margin: 0 40px; /* Verplaats de afbeelding iets meer naar het midden */
-}
-.item div {
-    flex: 1;
-    font-size: 1.2em; /* Vergroot de tekst */
-}
-.item h2 {
-    font-size: 1.5em; /* Vergroot de koptekst */
-}
-.item p {
-    font-size: 1.2em; /* Vergroot de paragraaf tekst */
+/* Definiëren van CSS Custom Properties */
+:root {
+  --primary-color: #4B0082;
+  --secondary-color: #7D26CD;
+  --text-color: white;
+  --font-family: Arial, sans-serif;
+  --padding-size: 20px;
+  --navbar-height: 70px;
 }
 
-/* Mediaquery voor telefoonlay-out */
+/* Algemene stijlen */
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color);
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: var(--text-color);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px var(--padding-size) var(--padding-size);
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0;
+  width: 80%;
+}
+
+.section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.section div {
+  flex: 1;
+  font-size: 1.2em;
+}
+
+.section h2 {
+  font-size: 1.5em;
+}
+
+.section p {
+  font-size: 1.2em;
+}
+
+img.portfolio-image {
+  width: auto;
+  height: 500px;
+  margin-right: 40px;
+}
+
 @media only screen and (max-width: 600px) {
-    .container {
-        padding-top: 160px; /* Voeg meer ruimte toe aan de bovenkant voor het vaste menu op telefoons */
-    }
-    .item img {
-        width: 200px; /* Verklein de afbeeldingen voor telefoons */
-        margin: 0; /* Verwijder de marge om de afbeeldingen in het midden te plaatsen */
-    }
-    .item div {
-        text-align: center; /* Centreer de tekst op telefoons */
-    }
+  .container {
+    padding-top: 160px;
+  }
+
+  .section img {
+    width: 200px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .section div {
+    text-align: center;
+  }
 }
