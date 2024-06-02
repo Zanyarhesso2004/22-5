@@ -1,11 +1,10 @@
-/* Definiëren van CSS Custom Properties */
+/* Variabelen */
 :root {
   --primary-color: #4B0082;
   --secondary-color: #7D26CD;
   --text-color: white;
   --font-family: Arial, sans-serif;
   --padding-size: 20px;
-  --navbar-height: 70px;
 }
 
 /* Algemene stijlen */
@@ -16,13 +15,13 @@ body {
   background-color: var(--secondary-color);
 }
 
+/* Navbar */
 .navbar {
   background-color: var(--primary-color);
   overflow: hidden;
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
 }
 
 .navbar a {
@@ -36,14 +35,11 @@ body {
 
 .navbar a:hover {
   background-color: var(--secondary-color);
-  color: var(--text-color);
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 80px var(--padding-size) var(--padding-size);
+/* Hoofdinhoud */
+main {
+  padding-top: calc(var(--navbar-height) + var(--padding-size));
 }
 
 .section {
@@ -58,37 +54,22 @@ body {
   flex-direction: row-reverse;
 }
 
-.section div {
-  flex: 1;
-  font-size: 1.2em;
-}
-
-.section h2 {
-  font-size: 1.5em;
-}
-
-.section p {
-  font-size: 1.2em;
-}
-
+/* Stijlen voor afbeeldingen */
 img.portfolio-image {
   width: auto;
   height: 500px;
   margin-right: 40px;
 }
 
+/* Mediaquery voor kleinere schermen */
 @media only screen and (max-width: 600px) {
-  .container {
-    padding-top: 160px;
+  main {
+    padding-top: calc(var(--navbar-height) + var(--padding-size) * 2);
   }
 
-  .section img {
+  img.portfolio-image {
     width: 200px;
     margin-right: 0;
     margin-bottom: 20px;
-  }
-
-  .section div {
-    text-align: center;
   }
 }
